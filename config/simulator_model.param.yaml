@@ -2,7 +2,7 @@
   ros__parameters:
     simulated_frame_id: "base_link"
     origin_frame_id: "map"
-    vehicle_model_type: "DELAY_STEER_ACC_GEARED"
+    vehicle_model_type: "DELAY_STEER_ACC_GEARED_DIST" #"DELAY_STEER_ACC_GEARED"
     initialize_source: "INITIAL_POSE_TOPIC"
     timer_sampling_time_ms: 25
     add_measurement_noise: False
@@ -16,7 +16,7 @@
     steer_time_constant: 0.27
     x_stddev: 0.0001 # x standard deviation for dummy covariance in map coordinate
     y_stddev: 0.0001 # y standard deviation for dummy covariance in map coordinate
-          
+
     # Note: vehicle characteristics parameters (e.g. wheelbase) are defined in a separate file.
     ## Disturbance generator models options.
     # --------------- STEERING TIME-VARYING TIME DELAY DISTURBANCE -------------
@@ -53,8 +53,8 @@
     dz_steer_sin_mag: 0.1 # added to and must be proportional the slope
     
     ## ----------------- ROAD SLOPE TIME-VARYING DISTURBANCE ------------------------------
-    use_road_slope_disturbance: false
-    rs_use_time_varying_slope: false # use time varying slope
+    use_road_slope_disturbance: true
+    rs_use_time_varying_slope: true # use time varying slope
     rs_mean_road_slope: 0.0 # mean value of slope degrees
     rs_delta_sin_mag: 5.0 # slope fluctuations in degrees
     rs_road_slope_variation_angular_speed: 0.1 # angular speed of the sinus fluctuations
